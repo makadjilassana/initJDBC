@@ -30,10 +30,7 @@ public class EtudiantService {
     public void InsererDB(Etudiant etudiant) throws SQLException{
        Connection con= ConnectionBD(); 
        PreparedStatement ps= con.prepareStatement("INSERT INTO Etudiant VALUES (?,?,?,?)");
-       //etudiant.setCne(6476);
-       //etudiant.setNom("Camer");
-       //etudiant.setPrenom("Koudous");
-       //etudiant.setFiliere("Miage");
+     
        ps.setInt(1,etudiant.getCne());
        ps.setString(2,etudiant.getNom());
        ps.setString(3,etudiant.getPrenom());

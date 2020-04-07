@@ -34,7 +34,7 @@ public class Main {
         for(Etudiant etu: liste){
         System.out.println(""+etu.getNom());    
         }
-        etudiant.find(5302);
+        
         
     } catch(SQLException e){
           e.printStackTrace();

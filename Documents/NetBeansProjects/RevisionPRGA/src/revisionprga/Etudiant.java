@@ -23,10 +23,9 @@ public class Etudiant {
         this.cne = cne;
     }
 
-    public Etudiant(String nom) {
-        this.nom = nom;
+    public Etudiant(String filiere) {
+        this.filiere = filiere;
     }
-    
     
 
     public Etudiant(int cne, String nom, String prenom, String filiere) {

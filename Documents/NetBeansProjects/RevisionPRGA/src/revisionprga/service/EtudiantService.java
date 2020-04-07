@@ -82,8 +82,17 @@ public class EtudiantService {
         return liste;
     }
     
-    
-    
+    public List<Etudiant> choisirFiliere() throws SQLException{
+        List<Etudiant> liste= new ArrayList<>();
+        Connection con= ConnectionBD();
+        PreparedStatement ps= con.prepareStatement("SELECT DISTINCT filiere FROM ETUDIANT");
+        ResultSet rs= ps.executeQuery();
+        while(rs.next()){
+            Etudiant etudiant= new Etudiant(rs.getString("filiere"));
+            liste.add(etudiant);
+        }
+        return liste;
+    }
     
     
 }

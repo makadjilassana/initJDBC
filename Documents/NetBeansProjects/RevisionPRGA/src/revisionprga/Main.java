@@ -5,6 +5,7 @@
  */
 package revisionprga;
 import java.sql.SQLException;
+import revisionprga.service.EtudiantService;
 
 
  
@@ -20,7 +21,7 @@ public class Main {
     public static void main(String[] args) {
        MapListe map= new MapListe();
        map.testMapListe(map.getTables());
-       Etudiant etudiant= new Etudiant();
+       EtudiantService etudiant= new EtudiantService();
       
        try{
         etudiant.InsererDB();

@@ -4,11 +4,6 @@
  * and open the template in the editor.
  */
 package revisionprga;
-
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
 import java.util.Objects;
 
 /**
@@ -92,46 +87,5 @@ public class Etudiant {
         }
         return true;
     }
-    
-    public Connection ConnectionBD() throws SQLException{
-        
-          Connection con= DriverManager.getConnection("jdbc:mysql://127.0.0.1/etudiant?serverTimezone=UTC","root","");
-          System.out.println("Connection BD reussie !");
-          return con;
-      
-    }
-    
-    public void InsererDB() throws SQLException{
-       Connection con= ConnectionBD(); 
-       PreparedStatement ps= con.prepareStatement("INSERT INTO Etudiant VALUES (?,?,?,?)");
-       setCne(6476);
-       setNom("Camer");
-       setPrenom("Koudous");
-       setFiliere("Miage");
-       ps.setInt(1,getCne());
-       ps.setString(2,getNom());
-       ps.setString(3,getPrenom());
-       ps.setString(4,getFiliere());
-       ps.executeUpdate();
-    }
-    
-    public void ModifierDB() throws SQLException{
-       Connection con= ConnectionBD(); 
-       PreparedStatement ps= con.prepareStatement("UPDATE Etudiant SET filiere=? WHERE filiere=?");
-       setFiliere("Management");
-       ps.setString(1,getFiliere());
-       ps.setString(2,"Miashs");
-       ps.executeUpdate();
-    }
-    
-    public void SupprimerDB() throws SQLException{
-    Connection con= ConnectionBD();
-    PreparedStatement ps= con.prepareStatement("DELETE FROM ETUDIANT WHERE filiere=?");
-    setFiliere("Miage");
-    ps.setString(1,getFiliere());
-    ps.executeUpdate();
- }
-    
-    
     
 }

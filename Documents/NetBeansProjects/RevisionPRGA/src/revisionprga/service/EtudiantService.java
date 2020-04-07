@@ -10,9 +10,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import revisionprga.Etudiant;
 
 /**
@@ -29,14 +27,13 @@ public class EtudiantService {
       
     }
     
-    public void InsererDB() throws SQLException{
+    public void InsererDB(Etudiant etudiant) throws SQLException{
        Connection con= ConnectionBD(); 
        PreparedStatement ps= con.prepareStatement("INSERT INTO Etudiant VALUES (?,?,?,?)");
-       Etudiant etudiant= new Etudiant();
-       etudiant.setCne(6476);
-       etudiant.setNom("Camer");
-       etudiant.setPrenom("Koudous");
-       etudiant.setFiliere("Miage");
+       //etudiant.setCne(6476);
+       //etudiant.setNom("Camer");
+       //etudiant.setPrenom("Koudous");
+       //etudiant.setFiliere("Miage");
        ps.setInt(1,etudiant.getCne());
        ps.setString(2,etudiant.getNom());
        ps.setString(3,etudiant.getPrenom());

@@ -5,6 +5,7 @@
  */
 package revisionprga;
 import java.sql.SQLException;
+import java.util.List;
 import revisionprga.service.EtudiantService;
 
 
@@ -24,9 +25,17 @@ public class Main {
        EtudiantService etudiant= new EtudiantService();
       
        try{
-        etudiant.InsererDB();
+        //etudiant.InsererDB();
         //etudiant.ModifierDB();
         //etudiant.SupprimerDB();
+        //etudiant.find(5302);
+        List<Etudiant> liste= etudiant.findAll();
+        
+        for(Etudiant etu: liste){
+        System.out.println(""+etu.getNom());    
+        }
+        etudiant.find(5302);
+        
     } catch(SQLException e){
           e.printStackTrace();
     }

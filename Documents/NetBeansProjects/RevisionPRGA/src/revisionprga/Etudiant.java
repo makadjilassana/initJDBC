@@ -18,7 +18,25 @@ public class Etudiant {
 
     public Etudiant() {
     }
+    
+    public Etudiant(int cne) {
+        this.cne = cne;
+    }
 
+    public Etudiant(String nom) {
+        this.nom = nom;
+    }
+    
+    
+
+    public Etudiant(int cne, String nom, String prenom, String filiere) {
+        this.cne = cne;
+        this.nom = nom;
+        this.prenom = prenom;
+        this.filiere = filiere;
+    }
+    
+   
     public int getCne() {
         return cne;
     }

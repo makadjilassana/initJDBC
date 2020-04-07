@@ -7,7 +7,12 @@ package revisionprga.service;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 import revisionprga.Etudiant;
 
 /**
@@ -57,6 +62,30 @@ public class EtudiantService {
     ps.setString(1,etudiant.getFiliere());
     ps.executeUpdate();
  }
+    
+    public Etudiant find(int cne) throws SQLException{
+        Connection con= ConnectionBD();
+        PreparedStatement ps= con.prepareStatement("SELECT * FROM ETUDIANT WHERE filiere=?");
+        ps.setInt(1, cne);
+        ResultSet rs= ps.executeQuery();
+        Etudiant etudiant= new Etudiant(rs.getInt("cne"));
+        return etudiant;
+    }
+    
+    public List<Etudiant> findAll() throws SQLException{
+        List<Etudiant> liste= new ArrayList<>();
+        Connection con= ConnectionBD();
+        PreparedStatement ps= con.prepareStatement("SELECT * FROM ETUDIANT");
+        ResultSet rs= ps.executeQuery();
+        while(rs.next()){
+            Etudiant etudiant= new Etudiant(rs.getInt("cne"),rs.getString("nom"),rs.getString("prenom"),rs.getString("filiere"));
+            liste.add(etudiant);
+        }
+        
+        return liste;
+    }
+    
+    
     
     
     

@@ -18,11 +18,14 @@ import revisionprga.Etudiant;
  * @author Makadji
  */
 public class EtudiantService {
+
+    public EtudiantService() {
+    }
     
     public Connection ConnectionBD() throws SQLException{
         
           Connection con= DriverManager.getConnection("jdbc:mysql://127.0.0.1/etudiant?serverTimezone=UTC","root","");
-          System.out.println("Connection BD reussie !");
+        //System.out.println("Connection BD reussie !");
           return con;
       
     }

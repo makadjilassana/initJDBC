@@ -65,7 +65,7 @@ public class EtudiantService {
         PreparedStatement ps= con.prepareStatement("SELECT * FROM ETUDIANT WHERE filiere=?");
         ps.setInt(1, cne);
         ResultSet rs= ps.executeQuery();
-        Etudiant etudiant= new Etudiant(rs.getInt("cne"));
+        Etudiant etudiant= new Etudiant(rs.getString("filiere"));
         return etudiant;
     }
     

@@ -104,5 +104,11 @@ public class Etudiant {
         }
         return true;
     }
+
+    @Override
+    public String toString() {
+        return "Etudiant{" + "cne=" + cne + ", nom=" + nom + ", prenom=" + prenom + ", filiere=" + filiere + '}';
+    }
+    
     
 }

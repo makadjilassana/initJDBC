@@ -41,22 +41,18 @@ public class EtudiantService {
        ps.executeUpdate();
     }
     
-    public void ModifierDB() throws SQLException{
+    public void ModifierDB(int cne, String filiere) throws SQLException{
        Connection con= ConnectionBD(); 
-       PreparedStatement ps= con.prepareStatement("UPDATE Etudiant SET filiere=? WHERE filiere=?");
-       Etudiant etudiant= new Etudiant();
-       etudiant.setFiliere("Management");
-       ps.setString(1,etudiant.getFiliere());
-       ps.setString(2,"Miashs");
+       PreparedStatement ps= con.prepareStatement("UPDATE Etudiant SET filiere=? WHERE cne=?");
+       ps.setString(1,filiere);
+       ps.setInt(2,cne);
        ps.executeUpdate();
     }
     
-    public void SupprimerDB() throws SQLException{
+    public void SupprimerDB(int cne) throws SQLException{
     Connection con= ConnectionBD();
-    PreparedStatement ps= con.prepareStatement("DELETE FROM ETUDIANT WHERE filiere=?");
-    Etudiant etudiant= new Etudiant();
-    etudiant.setFiliere("Miage");
-    ps.setString(1,etudiant.getFiliere());
+    PreparedStatement ps= con.prepareStatement("DELETE FROM ETUDIANT WHERE cne=?");
+    ps.setInt(1,cne);
     ps.executeUpdate();
  }
     

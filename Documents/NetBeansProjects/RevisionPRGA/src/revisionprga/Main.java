@@ -25,9 +25,9 @@ public class Main {
        EtudiantService etudiant= new EtudiantService();
       
        try{
+        //etudiant.SupprimerDB(2331);
         //etudiant.InsererDB();
         //etudiant.ModifierDB();
-        //etudiant.SupprimerDB();
         //etudiant.find(5302);
         List<Etudiant> liste= etudiant.findAll();
         

@@ -27,7 +27,6 @@ public class Etudiant {
         this.filiere = filiere;
     }
     
-
     public Etudiant(int cne, String nom, String prenom, String filiere) {
         this.cne = cne;
         this.nom = nom;
